@@ -8,4 +8,4 @@ MIS 561 Data Visualization Initial E-Commerce Profitability Analysis, You have b
 MIS 561 Data Visualization Initial E-Commerce Profitability Analysis Pt 2 , You have been given the company's order extract and asked to make sense of it., https://public.tableau.com/views/AdvancinginExcelandTableau-Pt2-AnnieGeorge/AccountPortfolioDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link, I would most definitely read the fine print , soemtimes me missing those fine detials made me waste a significant amount of time re reviewing cause it didn't look correct.
 
 
-DataCamp : Introduction to Power BI ; https://www.datacamp.com/completed/statement-of-accomplishment/course/005f4e8a33f769706ec0c64cd197151fb45919fe?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa
+DataCamp : Introduction to Power BI ; https://public.tableau.com/views/CERT_DATACAMP1/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
