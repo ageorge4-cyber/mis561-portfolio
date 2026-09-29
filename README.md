@@ -9,3 +9,5 @@ MIS 561 Data Visualization Initial E-Commerce Profitability Analysis Pt 2 , You 
 
 
 DataCamp : Introduction to Power BI ; https://public.tableau.com/views/CERT_DATACAMP1/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
+DataCamp: Introduction to DAX in Power BI ;  https://public.tableau.com/views/IntrotoDAZ_cert_Annie_George/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
