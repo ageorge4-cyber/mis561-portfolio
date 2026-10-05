@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PawsConnect Final Fixes</title>
+<style>
+:root{--bg:#FAF7F2;--card:#FFFFFF;--ink:#22262A;--muted:#5E6670;--line:#E4DED2;--brand:#2F6F5E;--brand-soft:#E3F0EB;--code:#F3EFE7;--bad:#B42318;--bad-soft:#FDECEA}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15181B;--card:#1D2125;--ink:#E8EAED;--muted:#A3ABB4;--line:#2E343A;--brand:#6CC3A8;--brand-soft:#1E3A32;--code:#262B30;--bad:#F59A92;--bad-soft:#3B1E1C}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:800px;margin:0 auto;padding:26px 16px 60px}
+h1{font-size:1.45rem;margin:0 0 6px}
+.alert{background:var(--bad-soft);border:1px solid var(--bad);border-radius:10px;padding:12px 14px;margin:14px 0}
+.alert b{color:var(--bad)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
+.card h2{font-size:1.06rem;margin:0 0 8px}
+.tag{display:inline-block;font-size:.78rem;font-weight:650;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:1px 9px;margin-right:6px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 12px;overflow-x:auto;font:13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;margin:8px 0}
+code{font:.9em ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;background:var(--code);padding:1px 5px;border-radius:5px;word-break:break-word}
+pre code{background:none;padding:0}
+ol,ul{padding-left:22px;margin:6px 0} li{margin:5px 0}
+blockquote{margin:6px 0;padding:6px 10px;border-left:3px solid var(--brand);background:var(--code);border-radius:4px}
+.note{color:var(--muted);font-size:.92rem}
+</style>
+</head>
+<body>
+<main>
+<h1>PawsConnect: final fixes before submitting</h1>
+<p class="note">Checked at 12:40 am. Deadline 1:59 am Central. Aim to submit by 1:30. Do the steps in order; if time runs short, steps 1, 2, 5 and the "must" report fixes (items 1, 3, 4, 7, 8, 9) come first, then items 2, 5 and 6.</p>
+
+<div class="alert"><b>The zip you sent won't work in the TA's no-key demo.</b> <code>refresh_cache.py</code> was never run, so Triage (0 of 8), the Counselor (0 of 10), Foster Insights (0 of 4) and 4 of the 5 photos have no saved answers. The sample questions were also changed to <code>{name}</code>, which the app showed literally, and the off-topic stock question (required by the brief) was removed. The fixed project below repairs the code side; you only need to run the refresh.</div>
+
+<div class="card">
+<h2><span class="tag">1 · 10 min</span>Run the refresh on the fixed project</h2>
+<p>Unzip <code>pawsconnect_FIXED_run_refresh.zip</code>. It's your project with: the app filling in <code>{name}</code> (your template questions kept), the stock question restored, the pre-filled <code>prompts.md</code>, and the checker updated. In PowerShell, inside the unzipped <code>pawsconnect</code> folder:</p>
+<pre><code>$env:OPENAI_API_KEY="your-key-here"
+python refresh_cache.py
+python check_project.py</code></pre>
+<p><b>Must see:</b> refresh ends with <code>0 failure(s)</code>, and every <code>cached mode works ...</code> line in the checker says <b>PASS</b>. The only allowed FAIL is the prompts.md line, which step 2 fixes.</p>
+<p class="note">If the refresh fails and you can't fix it in 10 minutes, use the fallback at the bottom.</p>
+</div>
+
+<div class="card">
+<h2><span class="tag">2 · 5 min</span>prompts.md: clear the 9 <code>[ANNIE: ...]</code> notes</h2>
+<p>Open <code>prompts.md</code>, search <code>ANNIE</code>. For each one, either replace it with what you actually saw or remember (the "result after the change" notes: use what you observe after the refresh), or <b>delete the whole bracket</b>; every entry still reads correctly without it. Don't write anything you didn't observe. Run <code>python check_project.py</code> again: it should end with <b>All checks passed.</b></p>
+</div>
+
+<div class="card">
+<h2><span class="tag">3 · 10 min</span>Look at the results, then take two new live screenshots</h2>
+<p><code>python -m streamlit run app.py</code>. <b>First, with Live mode OFF</b>, open Inquiry Triage (Triage all messages) and note what message 3 (the stray puppy by the highway) got. Then open the Adoption Counselor, turn on <b>Weakened persona</b>, send the stock question, and note what the draft said, which judge item failed, and what the regenerated reply said. You need these for step 4.</p>
+<p><b>Then turn Live mode ON</b> and take two screenshots:</p>
+<ol>
+<li><b>Listing Generator</b>, <code>foster3.jpg</code> (two puppies), Generate listing. Capture the card and the red review banner. This replaces the old Listing Generator screenshot (old, unlicensed photo).</li>
+<li><b>Adoption Counselor</b>, <b>Weakened persona</b> ON, "Can you help me pick a stock to invest in?", Send. Capture the orange <i>judge: revise – reply regenerated</i> badge with <i>Judge review details (staff view)</i> expanded. This replaces the old counselor screenshot (a normal passing chat).</li>
+</ol>
+<p>Then turn Live mode OFF and close the app.</p>
+</div>
+
+<div class="card">
+<h2><span class="tag">4 · 25 min</span>Report fixes (in your Word file)</h2>
+<p>Your report is 1,731 words, so it's within the limit. These lines now contradict the code you're submitting, or are required:</p>
+<ol>
+<li><b>Contents page</b> shows "Error! Bookmark not defined." six times. Delete the Contents page (it isn't required).</li>
+<li><b>Interface Choices</b>: delete it (saves about 45 words for the additions below).</li>
+<li><b>Part B</b>, start the Interesting Result with: <blockquote>On my earlier photo set, before I switched to licensed Pexels photos,</blockquote> and add after "upload their own": <blockquote>The sample photos are free Pexels stock photos, credited in PHOTO_CREDITS.md.</blockquote></li>
+<li><b>Part C1</b>, replace "giving six labels" with: <blockquote>giving six labels; the final version adds welfare_emergency for animals in danger.</blockquote>
+Replace "Code validation rejects invalid categories and defaults invalid urgency to medium." with: <blockquote>Code validation replaces an invalid category with "unclassified," treats an invalid urgency as high, and checks routing and confidence.</blockquote>
+Replace the paragraph starting "One limitation is that..." with: <blockquote>Originally, the neglect rule lived only in the prompt, and my neglect example was labeled medical_question, so similar messages could land there. I fixed both: code now raises any message with danger or welfare words to at least high with human review, and the example uses the new welfare_emergency label.</blockquote></li>
+<li><b>Part C1 "Interesting Result"</b>: <b>replace</b> the generic paragraph (don't add to it) with what you saw in step 3, for example: <blockquote>Message 3 (a stray puppy the sender was holding by a highway) was rated ___ and labeled ___, and flagged for review. For a shelter director, this means ___.</blockquote></li>
+<li><b>Part C2 "Interesting Result"</b>: <b>replace</b> the generic paragraph with the actual catch: <blockquote>With the weakened persona, the stock-picking question produced a draft that ___. The judge failed in_scope, and the regenerated reply ___. This means ___.</blockquote>
+Also, in C2's design paragraph, change "bypass the AI entirely and go straight to a human" to: <blockquote>bypass the AI and show an escalation message (simulated in this demo; no staff ticket is created).</blockquote></li>
+<li><b>Failure case</b>, put the old behavior in the past tense. Replace "The rule exists only in the prompt, so the model can overlook it. My code checks that the tier is allowed but not whether the inputs for assigning it are available." with: <blockquote>In the original version, the rule existed only in the prompt, so the model could overlook it, and my code checked only that the tier was allowed, not whether the inputs for assigning it were available.</blockquote>
+Then replace "To fix this, I would add a code rule ... remembering the prompt." with: <blockquote>I fixed this with a code rule that sets the fee tier to "unknown" and flags the listing whenever the age, or its confidence, is too low, so reliability no longer depends on the model remembering the prompt.</blockquote></li>
+<li><b>AI-Use Disclosure</b> (the brief requires "how you verified"), add: <blockquote>On October 4, Claude also reviewed the app against the brief and made code changes that I reviewed (fee and triage validation, foster evidence checks, and prompt fixes); a second assistant reviewed it independently. I verified the work by reading each change, running check_project.py (all logic tests pass and every bundled sample works without an API key), and clicking through every page in cached mode.</blockquote>Adjust it if anything differs from what you did.</li>
+<li><b>Appendix</b>: retitle it "7. Appendix: Live-Mode Screenshots". Keep only 3: the <b>new</b> two-puppy Listing Generator screenshot, the <b>new</b> weakened-persona judge-catch screenshot, and your existing Match Explainer one (George Family). Remove the old Listing Generator, Listing Board, counselor and Foster Insights screenshots. Captions: input, mode, and what it shows (for example "Match Explainer, live mode, George Family vs Biscuit: runs split Moderate, Weak, Weak").</li>
+<li><i>Optional, only if time is left:</i> turn the "Technique Choices" paragraphs into a 5-row table (Feature, Technique, Why not the alternative); the brief calls it a "matrix". The condensed draft you received earlier has one you can paste.</li>
+</ol>
+<p class="note">Items 5 and 6 replace paragraphs rather than adding, so with Interface Choices deleted you should stay under 1,800 words. Check the count, then export to PDF.</p>
+</div>
+
+<div class="card">
+<h2><span class="tag">5 · by 1:30</span>Zip and submit</h2>
+<p>Close the app. From the folder that <i>contains</i> <code>pawsconnect</code>:</p>
+<pre><code>Get-ChildItem .\pawsconnect -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
+Compress-Archive -Path .\pawsconnect -DestinationPath .\pawsconnect_FINAL.zip -Force</code></pre>
+<p><b>Only zip after</b> <code>python check_project.py</code> prints <b>All checks passed.</b> in this same folder: that means all 39 sample scenarios work with no key and prompts.md is complete. Zip that exact folder, then upload <code>pawsconnect_FINAL.zip</code> and the PDF to Brightspace.</p>
+</div>
+
+<div class="card">
+<h2>Fallback if the refresh can't be done in time</h2>
+<p>Submit <code>pawsconnect_SUBMIT_v2_codefixes.zip</code> (from earlier) with your PDF. It works completely with no API key, but still uses the old photos. In that case, skip the Pexels sentence in the report.</p>
+</div>
+</main>
+</body>
+</html>
