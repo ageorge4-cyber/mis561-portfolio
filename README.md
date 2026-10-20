@@ -25,3 +25,7 @@ I’d use Excel for one-off questions that need cell-by-cell auditing, Tableau w
 
 ** I used generative AI (Claude) to help draft and edit this entry; the examples and judgments are my own.
 
+Card Portfolio Review – Contactless Readiness, Which one batch of non-contactless cards should Renee’s team replace early this quarter to get tap-to-pay out to customers without wasting money?, https://public.tableau.com/views/CarPortfolioReview-ContactlessReadiness/ExploratoryDash?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+, I’d add a small label on the chart showing how much money the 1,253 automatic replacements would waste if they got replaced early. Right now the chart makes the 229 bar look like the obvious pick, but it doesn’t show what the other bars would cost if she chose them. Seeing that number would make the decision feel even easier for Renee.
+
+
