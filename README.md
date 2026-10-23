@@ -29,3 +29,9 @@ Card Portfolio Review – Contactless Readiness, Which one batch of non-contactl
 , I’d add a small label on the chart showing how much money the 1,253 automatic replacements would waste if they got replaced early. Right now the chart makes the 229 bar look like the obvious pick, but it doesn’t show what the other bars would cost if she chose them. Seeing that number would make the decision feel even easier for Renee.
 
 
+
+Card Growth Analysis – Wildcat Rewards Offer ; Business question: Which single customer group should receive the one Wildcat Rewards pilot mailing, and how many customers in that group qualify at the 670 FICO cutoff? ; Tableau Public workbook: https://public.tableau.com/views/CardGrowthAnalyst-WildcatRewardsOffer/ExploratoryDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
+One thing I would change: I would add a second chart showing each generation’s total customer count next to its eligible count, so the VP can see at a glance that Gen Z’s 26.4% share comes from a group large enough to support a real pilot.
+
+
