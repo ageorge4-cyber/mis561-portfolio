@@ -32,6 +32,42 @@ Card Portfolio Review – Contactless Readiness, Which one batch of non-contactl
 
 Card Growth Analysis – Wildcat Rewards Offer ; Business question: Which single customer group should receive the one Wildcat Rewards pilot mailing, and how many customers in that group qualify at the 670 FICO cutoff? ; Tableau Public workbook: https://public.tableau.com/views/CardGrowthAnalyst-WildcatRewardsOffer/ExploratoryDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
+
+
+
 One thing I would change: I would add a second chart showing each generation’s total customer count next to its eligible count, so the VP can see at a glance that Gen Z’s 26.4% share comes from a group large enough to support a real pilot.
 
+**Nov 2, 2026 · Data Storytelling with Adobe Express**
 
+Work sample for Sam Okafor, Chief Credit Officer at Bear Down Bank: keep the minimum FICO score for the Wildcat Rewards offer at 670.
+
+[Work sample (PDF)]: https://github.com/ageorge4-cyber/mis561-portfolio/blob/main/adobe/George-data-storytelling.pdf
+
+[Adobe Express]: https://new.express.adobe.com/id/urn:aaid:sc:US:7aaaaff1-409a-421a-91e7-2c7555b84ded?accept=true&invite=true&promoid=Z2G1FQKR&mv=other
+
+Design choice: I used a bar chart of heavy-debt share by FICO band with the 670 minimum marked, because the case for keeping 670 rests on 44.0% of customers below it owing more than twice their annual income, versus 16.3% at 670 and above. I considered a histogram of customer counts by score, but it shows how many customers sit below 670, not whether they carry more debt. I removed the patterned purple background and the textured color bands behind the wordmark and footer, because Sam will scan this page once and a plain white field lets the eye go straight to the 670 line while keeping all text in high-contrast navy and white.
+
+Training completed: [date you finished the Adobe training]
+
+AI use: Claude (Anthropic), Claude Sonnet 5.5, Nov 2, 2026. Prompt: Chose from buttons: “Keep the minimum at 670”
+“tell me what to do step by step”
+“here is my professors lecture about the guided assignment :” (followed by the pasted lecture transcript)
+“Firm name is Arizona Pilares”
+Uploaded Exploratory_Dash.png: “here is my dashboard”
+“just to show earlier work , ok let’s get started in adobe”
+Uploaded a screenshot: “brand kit is done and now I have created the blank page :”
+“well I made some changes to the background if that is ok”
+Uploaded a screenshot: “how does that look”
+Uploaded a screenshot: “ok I did your exact color paletee and added the logo and such , now whaat”
+“ok help me bild these : The bar chart in the middle. * The small table below it. * The note, then the footer band.”
+“are we supposed to build the data vis in tableau or adobe”
+“ok describe in words the bar chart , i’m gonna put it in adobe ai and it’ll gneerate the image :” (followed by the pasted chart and table instructions)
+“or can you just create the image please”
+Uploaded a screenshot: “ok how does that look”
+Uploaded a screenshot: “ok I think I fixed it now what”
+“please build this for me :” (followed by the pasted table and note instructions)
+“Build this for me :” (the same instructions again)
+“tell me how to do step by step :” (followed by the pasted GitHub steps 3 to 5)
+“put the findinngs in this format please :” (followed by the pasted README example)
+“fill this in for me : I removed [one specific thing from your draft], which [what removing it bought you].”
+“what are all the things I typed in today”
